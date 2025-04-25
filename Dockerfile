@@ -9,9 +9,12 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
+COPY requirements.txt .
 COPY pyproject.toml .
 COPY src/ src/
+COPY scripts/ scripts/
 
+RUN pip install -r requirements.txt
 RUN pip install --no-cache-dir . \
     uvicorn[standard] \
     uvloop \
