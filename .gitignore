@@ -44,3 +44,5 @@ test_images/
 *.txt
 *.jpg
 
+
+*.pem

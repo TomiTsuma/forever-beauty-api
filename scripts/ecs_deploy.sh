@@ -2,7 +2,7 @@
 
 set -e
 set -a 
-source ../.env
+source .env
 set +a 
 
 echo "Getting AWS Account ID..."
@@ -68,8 +68,8 @@ TASK_DEFINITION_ARN=$(aws ecs register-task-definition \
     --output text)
 
 echo "Creating or verifying CloudWatch log group... ${ECS_TASK_FAMILY}..."
-aws logs describe-log-groups --log-group-name-pattern "${ECS_TASK_FAMILY}" || \
-    aws logs create-log-group --log-group-name-pattern "${ECS_TASK_FAMILY}"
+aws logs describe-log-groups --log-group-name-pattern "/ecs/${ECS_TASK_FAMILY}" || \
+    aws logs create-log-group --log-group-name-pattern "/ecs/${ECS_TASK_FAMILY}"
 
 echo "Creating or retrieving security group..."
 SECURITY_GROUP_ID=$(

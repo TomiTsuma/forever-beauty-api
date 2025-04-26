@@ -75,3 +75,11 @@ Run the following commands
     bash build_and_push.sh
     bash ./scripts/ecs_deploy.sh
 ```
+
+## EC2 Deployment
+Run the following commands
+```bash
+    mv ./scripts/build_and_push.sh ./
+    bash build_and_push.sh
+    bash ./scripts/ec2_deploy.sh
+```
