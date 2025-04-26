@@ -13,3 +13,4 @@ pillow
 pytest-asyncio
 httpx
 pytest
+google-generativeai
