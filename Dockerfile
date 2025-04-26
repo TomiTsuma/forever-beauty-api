@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.11
 
 WORKDIR /app
 
@@ -13,6 +13,7 @@ COPY requirements.txt .
 COPY pyproject.toml .
 COPY src/ src/
 COPY scripts/ scripts/
+COPY .env .
 
 RUN pip install -r requirements.txt
 RUN pip install --no-cache-dir . \
@@ -25,4 +26,4 @@ USER appuser
 
 EXPOSE 8000
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4", "--loop", "uvloop", "--http", "httptools"] 
+CMD ["python3","src/main.py"] 

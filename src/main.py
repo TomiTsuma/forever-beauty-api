@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .api.v1.endpoints import router as v1_router
-from .config import get_settings
+from api.v1.endpoints import router as v1_router
+from config import get_settings
 import uvicorn
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
@@ -42,11 +42,10 @@ async def shutdown_event():
 
 if __name__ == "__main__":
     uvicorn.run(
-        "face_issue_detection.main:app",
+        "main:app",
         host=settings.HOST,
         port=settings.PORT,
         reload=True,
         workers=settings.MAX_WORKERS,
-        loop="uvloop",
         http="httptools"
     ) 
