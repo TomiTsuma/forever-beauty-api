@@ -12,4 +12,4 @@ class FaceDetectionRequest(BaseModel):
 
 
 class FaceDetectionResponse(BaseModel):
-    issues_detected: List[FaceIssue] 
+    issues_detected: dict[str, str]
