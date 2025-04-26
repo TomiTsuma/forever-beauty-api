@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Dict
 
 
 class FaceIssue(BaseModel):
@@ -12,4 +12,4 @@ class FaceDetectionRequest(BaseModel):
 
 
 class FaceDetectionResponse(BaseModel):
-    issues_detected: dict[str, str]
+    issues_detected: Dict[str, str]

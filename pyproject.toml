@@ -1,66 +1,15 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name = "face-issue-detection"
-version = "0.1.0"
+name = "forever_beauty_api"
+version = "0.0.1"
 description = "An asynchronous REST API for detecting face issues using GPT-4 Vision"
-readme = "README.md"
-requires-python = ">=3.8"
-license = "MIT"
-authors = [
-    { name = "Your Name", email = "your.email@example.com" }
+
+[tool.pytest.ini_options]
+pythonpath = [
+    ".", "src"
 ]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-]
-dependencies = [
-    "fastapi>=0.109.2",
-    "uvicorn>=0.27.1",
-    "python-multipart>=0.0.9",
-    "openai>=1.12.0",
-    "python-dotenv>=1.0.1",
-    "requests>=2.31.0",
-    "pydantic>=2.6.1",
-    "python-jose>=3.3.0",
-    "passlib>=1.7.4",
-    "bcrypt>=4.1.2",
-]
-
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0.0",
-    "pytest-asyncio>=0.23.0",
-    "black>=23.0.0",
-    "isort>=5.12.0",
-    "mypy>=1.0.0",
-    "ruff>=0.1.0",
-]
-
-[tool.black]
-line-length = 88
-target-version = ["py38"]
-
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-
-[tool.mypy]
-python_version = "3.8"
-warn_return_any = true
-warn_unused_configs = true
-disallow_untyped_defs = true
-
-[tool.ruff]
-line-length = 88
-target-version = "py38"
-select = ["E", "F", "B", "I"]
-ignore = [] 
+testpaths = ["tests"]
+python_files = ["test_*.py"]

@@ -90,8 +90,8 @@ class FaceDetectionService:
         try:
             try:
                 await asyncio.to_thread(base64.b64decode, image_base64)
-            except Exception:
-                raise ValueError("Invalid base64 image format")
+            except Exception as e:
+                raise ValueError(e)
             
             image_data = base64.b64decode(image_base64)
             image_data = Image.open(BytesIO(image_data))
