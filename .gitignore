@@ -24,6 +24,7 @@ ENV/
 env/
 
 .env
+.env.test
 
 .idea/
 .vscode/
@@ -36,4 +37,10 @@ test_images/
 
 *.log 
 
+
+*.json
+*.png
+*.csv
+*.txt
+*.jpg
 
