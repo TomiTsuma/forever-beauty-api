@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forever_beauty_api"
+version = "0.0.1"
+description = "An asynchronous REST API for detecting face issues using GPT-4 Vision"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    ".", "src"
+]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
